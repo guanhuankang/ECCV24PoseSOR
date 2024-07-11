@@ -61,6 +61,8 @@ Swin-L Transformer pretrained weight can be downloaded from [our google drive](h
 | PoseSOR-w/o-Pose-Knowledge (ID2) | ASSR    | [checkpoint](https://drive.google.com/file/d/1s8_xun_88sn8PfKS0S5Ko54BM0bYmC3G/view?usp=sharing) | 0.665  | 0.856 | 7.70 |
 
 ### Training & Inference
+We provide our training & inference details in `assets/model_cards`, where you can also find our results in coco format. We provide the computation friendly configuration as follows:
+
 For training (computation friendly configuration):
 ```shell
 ## download pretrained weights from model cards above. and put it into "assets/pretrained/swin_large_patch4_window12_384_22k.pth"
@@ -86,7 +88,7 @@ python train_net.py --config-file configs/swinL.yaml --eval-only \
     MODEL.WEIGHTS {{CKP_PATH}}
 ```
 
-where `CKP_PATH` refers to the checkpoint file. We provide our model cards as above.
+where `CKP_PATH` refers to the checkpoint file.
 
 ## Cite
 ```html
