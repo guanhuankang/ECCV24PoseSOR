@@ -1,0 +1,106 @@
+from detectron2.config import CfgNode as CN
+
+def add_custom_config(cfg, num_gpus=1):
+    cfg.MODEL.WEIGHTS = ""
+    cfg.MODEL.PE = "APE"
+
+    cfg.MODEL.BACKBONE = CN()
+    cfg.MODEL.BACKBONE.NAME = "ResNeXt50"
+    cfg.MODEL.BACKBONE.NUM_FEATURES = (256,512,1024,2048)
+    cfg.MODEL.BACKBONE.FEATURE_KEYS = ["res2", "res3", "res4", "res5"]
+
+    cfg.MODEL.NECK = CN()
+    cfg.MODEL.NECK.NAME = "FPN"
+
+    cfg.MODEL.SIS_HEAD = CN()
+    cfg.MODEL.SIS_HEAD.NAME = "TransformerDecoder"
+    cfg.MODEL.SIS_HEAD.NUM_BLOCKS = 3
+    cfg.MODEL.SIS_HEAD.KEY_FEATURES = ["res5", "res4", "res3"]
+    cfg.MODEL.SIS_HEAD.MASK_KEY = "res2"
+
+    cfg.MODEL.ACTOR_INTERACTION = CN()
+    cfg.MODEL.ACTOR_INTERACTION.NAME = ""
+    cfg.MODEL.ACTOR_INTERACTION.NUM_LAYERS = 3
+    cfg.MODEL.ACTOR_INTERACTION.NUM_BLOCKS = 3
+    cfg.MODEL.ACTOR_INTERACTION.MASK_KEY = "res2"
+    cfg.MODEL.ACTOR_INTERACTION.SCENE_BINS = [4, 5]
+    cfg.MODEL.ACTOR_INTERACTION.KEY_FEATURE = "res2"
+
+    cfg.MODEL.POSE_SHIFT = CN()
+    cfg.MODEL.POSE_SHIFT.NAME = ""
+    cfg.MODEL.POSE_SHIFT.MASK_KEY = "res2"
+    cfg.MODEL.POSE_SHIFT.NUM_DIRECTIONS = 8
+
+    cfg.MODEL.COMMON = CN()
+    cfg.MODEL.COMMON.EMBED_DIM = 256
+    cfg.MODEL.COMMON.NUM_HEADS = 8
+    cfg.MODEL.COMMON.HIDDEN_DIM = 2048
+    cfg.MODEL.COMMON.DROPOUT_ATTN = 0.0
+    cfg.MODEL.COMMON.DROPOUT_FFN = 0.0
+    cfg.MODEL.COMMON.NUM_JOINTS = 17
+    cfg.MODEL.COMMON.NUM_QUERIES = 100
+    cfg.MODEL.COMMON.MAX_RANK_LEVEL = 20
+    cfg.MODEL.COMMON.TOPK_QUERIES = 8
+
+    cfg.MODEL.SWIN = CN()
+    cfg.MODEL.SWIN.PRETRAIN_IMG_SIZE = 224
+    cfg.MODEL.SWIN.PATCH_SIZE = 4
+    cfg.MODEL.SWIN.EMBED_DIM = 96
+    cfg.MODEL.SWIN.DEPTHS = [2, 2, 6, 2]
+    cfg.MODEL.SWIN.NUM_HEADS = [3, 6, 12, 24]
+    cfg.MODEL.SWIN.WINDOW_SIZE = 7
+    cfg.MODEL.SWIN.MLP_RATIO = 4.0
+    cfg.MODEL.SWIN.QKV_BIAS = True
+    cfg.MODEL.SWIN.QK_SCALE = None
+    cfg.MODEL.SWIN.DROP_RATE = 0.0
+    cfg.MODEL.SWIN.ATTN_DROP_RATE = 0.0
+    cfg.MODEL.SWIN.DROP_PATH_RATE = 0.3
+    cfg.MODEL.SWIN.APE = False
+    cfg.MODEL.SWIN.PATCH_NORM = True
+    cfg.MODEL.SWIN.OUT_FEATURES = ["res2", "res3", "res4", "res5"]
+    cfg.MODEL.SWIN.USE_CHECKPOINT = False
+
+    cfg.LOSS = CN()
+    cfg.LOSS.MASK_CE_COST = 5.0
+    cfg.LOSS.MASK_DICE_COST = 5.0
+    cfg.LOSS.OBJ_POS = 1.0
+    cfg.LOSS.OBJ_NEG = 0.1
+    cfg.LOSS.BBOX_L1_COST = 1.0
+    cfg.LOSS.BBOX_GIOU_COST = 1.0
+    cfg.LOSS.CLS_COST = 10.0
+    cfg.LOSS.MASK_COST = 1.0
+    cfg.LOSS.JOINT_COST = 10.0
+    cfg.LOSS.JOINT_CLS_COST = 1.0
+    cfg.LOSS.HEATMAP_COST = 10.0
+    cfg.LOSS.PARTITION_COST = 1.0
+    cfg.LOSS.RANK_COST = 5.0
+    cfg.LOSS.PART_RANK_COST = 0.000
+    cfg.LOSS.NUM_POINTS = 12544
+    cfg.LOSS.SIGMA = 0.05
+
+    cfg.DATASETS.ROOT = ""
+
+    cfg.SOLVER.BACKBONE_MULTIPLIER = 0.1
+    cfg.SOLVER.OPTIMIZER = "ADAMW"
+    cfg.SOLVER.WEIGHT_DECAY_EMBED = 0.0
+    cfg.SOLVER.IMS_PER_GPU = 1
+    cfg.SOLVER.NUM_GPUS = num_gpus
+    cfg.SOLVER.TIMEOUT = 2
+
+    cfg.TEST.AUG = CN()
+    cfg.TEST.AUG.ENABLED = False
+    cfg.TEST.UPPER_BOUND = False
+    cfg.TEST.EVAL_SAVE = False
+    cfg.TEST.METRICS_OF_INTEREST = ["mae"]
+    cfg.TEST.THRESHOLD = 0.5
+    cfg.TEST.OBJ_THRESHOLD = 0.1
+    cfg.TEST.MASKNESS_THRESHOLD = 0.95
+
+    cfg.INPUT.TRAIN_IMAGE_SIZE = 512
+    cfg.INPUT.TEST_IMAGE_SIZE = 512
+    cfg.INPUT.DYNAMIC_SIZES = [[288, 288], [320, 320], [352, 352], [384, 384]]
+
+    cfg.DEBUG = CN()
+    cfg.DEBUG.DEBUG_DIR = "debug"
+    cfg.DEBUG.TICK_PERIOD = 1000
+    cfg.DEBUG.TOKEN = 0

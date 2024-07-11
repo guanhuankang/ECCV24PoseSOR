@@ -1,0 +1,13 @@
+__pycache__
+.idea
+
+assets/datasets/*/images
+assets/pretrained/swin_large_patch4_window12_384_22k.pth
+assets/model_cards/*/checkpoint.pth
+assets/model_cards/ID*
+
+colormaps
+events.out.tfevents.*
+training
+debug
+output
