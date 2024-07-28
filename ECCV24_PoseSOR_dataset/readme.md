@@ -1,8 +1,6 @@
 # PoseSOR: Human Pose Can Guide Our Attention
 
-We release our PoseSOR dataset, which includes all annotations (instance masks, saliency ranks and human pose annotations), for both SOR benchmarks (ASSR and IRSR). The images of both benchmarks can be downloaded from MS-COCO-2017 or their original codebase (ASSR and IRSR repo).
-
-
+We release our PoseSOR dataset, which includes all annotations (instance masks, saliency ranks and human pose annotations), for both SOR benchmarks (ASSR and IRSR). The images of both benchmarks can be downloaded from MS-COCO-2017 or their original codebase (ASSR and IRSR repo) or the links in the annotation file.
 
 We organize our dataset in COCO format. The structure of the dataset is as follows:
 

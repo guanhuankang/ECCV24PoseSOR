@@ -3,7 +3,8 @@
 
 > Department of Computer Science, City University of Hong Kong
 
-**Our dataset is avaiable now. Please use the following links (dataset-link1 OR dataset-link2) to download the annotations. Note that the images are the same as MS-COCO-2017, thus you can directly download them from the original dataset (MS-COCO) or ASSR/IRSR repo.**
+**Our dataset is avaiable now. Please use the following links (dataset-link1 OR dataset-link2) to download our dataset.**
+
 [[dataset-link1]](https://drive.google.com/drive/folders/1L0dagM2-UtuZX4lb6dSe1O5mdcDyd64d?usp=sharing) [[dataset-link2]](ECCV24_PoseSOR_dataset/) [[poster]](#) [[suppl]](__doc__/02792-supp.pdf)
 
 
@@ -76,6 +77,7 @@ python train_net.py --config-file configs/swinL.yaml --num-gpus 1 \
     SOLVER.MAX_ITER 30000 \
     DATASETS.TRAIN "('assr_train',)" \
     DATASETS.TEST "('assr_test',)" \
+    DATASETS.ROOT REPLACED_WITH_YOUR_DATASET_ROOT \
     MODEL.WEIGHTS "assets/pretrained/swin_large_patch4_window12_384_22k.pth" \
     OUTPUT_DIR output/assr_id1_train
 ```
