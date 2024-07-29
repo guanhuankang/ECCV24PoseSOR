@@ -3,7 +3,7 @@
 
 > Department of Computer Science, City University of Hong Kong
 
-[[dataset]](https://drive.google.com/drive/folders/1m1Xtr2N6CLMH2J3HviOQioHELQY1hjY8?usp=sharing) [[poster]](#) [[suppl]](__doc__/02792-supp.pdf)
+[[dataset]](https://github.com/guanhuankang/ECCV24PoseSOR/tree/main/ECCV24_PoseSOR_dataset) [[poster]](#) [[suppl]](__doc__/02792-supp.pdf)
 
 ## Dataset
 **Our dataset is avaiable [here](https://github.com/guanhuankang/ECCV24PoseSOR/tree/main/ECCV24_PoseSOR_dataset).**

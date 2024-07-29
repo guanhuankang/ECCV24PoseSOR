@@ -1,7 +1,9 @@
 # PoseSOR - Dataset
 > PoseSOR : Human Pose Can Guide Our Attention
 
-Please download our full dataset via [link](https://drive.google.com/drive/folders/1m1Xtr2N6CLMH2J3HviOQioHELQY1hjY8?usp=sharing). 
+Note that this code repo includes the annotations only. Full dataset can be downloaded from the [full dataset link (3GB)](https://drive.google.com/drive/folders/1m1Xtr2N6CLMH2J3HviOQioHELQY1hjY8?usp=sharing). 
+> For those who can not access google drive, you can download images seperatly from [MSCOCO 2017 split](https://cocodataset.org/#home). 
+> We also include a google drive link to our annotations~[[dataset-without-images (88MB)]](https://drive.google.com/drive/folders/1L0dagM2-UtuZX4lb6dSe1O5mdcDyd64d?usp=sharing), which is much smaller in size.
 
 We organize our dataset in **COCO format**. The structure of the dataset is as follows:
 
@@ -29,7 +31,6 @@ DATASET_ROOT
 └── readme.md
 
 ```
-Note that our code repo includes the annotations only. Images can be downloaded from the above full dataset link or from [MSCOCO 2017 split](https://cocodataset.org/#home). We also include a link to our annotations~[[dataset-without-images]](https://drive.google.com/drive/folders/1L0dagM2-UtuZX4lb6dSe1O5mdcDyd64d?usp=sharing), which is much smaller in size.
 
 
 ## Annotation Files
