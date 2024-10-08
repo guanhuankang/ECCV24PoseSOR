@@ -66,7 +66,17 @@ where `CKP_PATH` refers to the checkpoint file.
 
 ## Cite
 ```html
-On the way...
+@InProceedings{Guan_ECCV24_PoseSOR,
+    author="Guan, Huankang
+    and Lau, Rynson W. H.",
+    title="PoseSOR: Human Pose Can Guide Our Attention",
+    booktitle="ECCV",
+    year="2024",
+    publisher="Springer Nature Switzerland",
+    pages="350--366",
+    isbn="978-3-031-72649-1",
+    url="https://link.springer.com/chapter/10.1007/978-3-031-72649-1_20"
+}
 ```
 
 Feel free to discuss/post your questions in the issue pannel!
